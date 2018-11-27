@@ -42,12 +42,11 @@ $(function () {
             }
         }
     })
-
     //ajax提交功能
     $("#form").on('success.form.bv', function (e) {
         e.preventDefault();
         //使用ajax提交逻辑
-
+        
         $.ajax({
             type: "post",
             url: "/employee/employeeLogin",
