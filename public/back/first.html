@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css"> -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <link rel="stylesheet" href="./css/comment.css">
     <title>乐淘电商</title>
@@ -61,9 +61,50 @@
                 <li class="active">首页</li>
             </ol>
         </div>
+
+        <div class="info_content">
+            <button class="btn btn-default mb_20 add_classification">添加分类</button>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th width="20%" class="text-center">序号</th>
+                        <th width="80%" class="text-center">一级分类</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <ul id="paginator"></ul>
+            </div>
+        </div>
     </div>
 
-    <!-- 模态框 -->
+    <!-- 添加分类模态框 -->
+    <div class="modal fade" id="add_exampleModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form id="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="请输入一级分类" name="categoryName">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary" id="add_classification" form="form">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 退出模态框 -->
     <div class="modal fade" id="exampleModal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
@@ -85,14 +126,27 @@
         </div>
     </div>
 
+    <!-- 模板 -->
+    <script type="text/html" id="app1">
+        {{each rows v i}}
+            <tr>
+                <td  class="text-center">{{(page - 1)*5 + i }}</td>
+                <td  class="text-center">{{v.categoryName}}</td>
+            </tr>
+        {{/each}}
+    </script>
+
     <script src="./lib/jquery/jquery.js"></script>
     <script src="./js/islogin.js"></script>
 
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
-    <!-- <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script> -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./js/nprogress.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/comment.js"></script>
+    <script src="./js/first.js"></script>
 </body>
 
 </html>
