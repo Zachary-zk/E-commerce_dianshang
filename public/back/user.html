@@ -9,6 +9,7 @@
     <!-- <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css"> -->
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <link rel="stylesheet" href="./css/comment.css">
+    <link rel="stylesheet" href="./css/user.css">
     <title>乐淘电商</title>
 </head>
 
@@ -46,10 +47,10 @@
     </div>
     <!-- 顶部 -->
     <div class="lt_header">
-        <a href="#" class="pull-left">
+        <a href="javascirpt:;" class="pull-left">
             <i class="glyphicon glyphicon-align-justify"></i>
         </a>
-        <a href="#" class="pull-right">
+        <a href="javascirpt:;" class="pull-right">
             <i class="glyphicon glyphicon-log-out"></i>
         </a>
     </div>
@@ -58,18 +59,103 @@
         <div class="lujing_nav">
             <ol class="breadcrumb">
                 <li><a href="./index.html">管理系统</a></li>
-                <li class="active">首页</li>
+                <li class="active">用户管理</li>
             </ol>
+        </div>
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>用户名</th>
+                    <th>手机号</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <!-- 分页 -->
+        <div class="text-right">
+            <ul id="paginator"></ul>
         </div>
     </div>
 
+    <!-- 修改操作模态框 -->
+    <div class="modal fade" id="toggle_exampleModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <i class="glyphicon glyphicon-info-sign"></i>
+                        你确定要执行此操作吗？
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="toggle_Btn">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 退出模态框 -->
+    <div class="modal fade" id="exampleModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <i class="glyphicon glyphicon-info-sign"></i>
+                        您确定要退出后台管理系统吗？
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模板 -->
+    <script type="text/html" id="app">
+        {{each rows v i}}
+            <tr>
+                <td>{{(page-1) * 5 +(i+1)}}</td>
+                <td>{{v.username}}</td>
+                <td>{{v.mobile}}</td>
+                <td>{{v.isDelete === 1 ? '正常':'禁用'}}</td>
+                <td data-id={{v.id}} data-isdelete = {{v.isDelete ===1 ? 0 : 1}}>
+                    {{if v.isDelete ===1}}
+                        <button class="btn btn-danger btn_toggel">{{v.isDelete ===1 ? '禁用' : '正常'}}</button>
+                    {{else}}
+                        <button class="btn btn-success btn_toggel">{{v.isDelete ===1 ? '禁用' : '正常'}}</button>
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+        
+    </script>
+
     <script src="./lib/jquery/jquery.js"></script>
+    <script src="./js/islogin.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <!-- <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script> -->
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./js/nprogress.js"></script>
-    <script src="./js/islogin.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/comment.js"></script>
+    <script src="./js/user.js"></script>
 </body>
 
 </html>
