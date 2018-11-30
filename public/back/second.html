@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css"> -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <link rel="stylesheet" href="./css/comment.css">
     <title>乐淘电商</title>
@@ -58,12 +58,86 @@
         <div class="lujing_nav">
             <ol class="breadcrumb">
                 <li><a href="./index.html">管理系统</a></li>
-                <li class="active">首页</li>
+                <li class="active">分类管理</li>
+                <li class="active">二级分类</li>
             </ol>
+            <div class="info_center">
+                <button class="btn btn-default mb_20 add_class">添加分类</button>
+
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">序号</th>
+                            <th class="text-center">一级分类名称</th>
+                            <th class="text-center">二级分类名称</th>
+                            <th class="text-center">二级分类LOGO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <!-- 分页 -->
+                <div class="text-right">
+                    <ul id="paginator"></ul>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- 模态框 -->
+    <!-- 分类模态框 -->
+    <div class="modal fade" id="add_class">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="form">
+                        <div class="dropdown mb_20 form-group">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown">
+                                <span id="dropdownText">请选择一级分类</span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <!-- 模板 -->
+                            </ul>
+                            <!-- 隐藏域 -->
+                            <input type="hidden" name="categoryId">
+                            <!-- 火热的品牌 -->
+                            <input type="hidden" name="hot" value="1">
+                        </div>
+                        <div class="mb_20 form-group">
+                            <input type="text" placeholder="请输入二级分类" class="form-control" name="brandName">
+                        </div>
+                        <div class="mb_20">
+                            <label class="btn btn-default" for="fileupload">上传图片</label>
+                            <!-- 注意:
+                                    1. 指定name用于让后台获取图片, 所以不能乱写
+                                    2. 指定data-url, 指定接口地址
+                            -->
+                            <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload"
+                                style="display: none;">
+                        </div>
+                        <div class="form-group" id="imgBox">
+                            <img src="./img/none.png" width="100">
+                            <!-- 图片地址 -->
+                            <input type="hidden" name="brandLogo">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary" id="add_tianjia" form="form">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 退出模态框 -->
     <div class="modal fade" id="exampleModal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
@@ -85,14 +159,39 @@
         </div>
     </div>
 
+    <!-- 表格模板 -->
+    <script type="text/html" id="app">
+        {{each rows v i}}
+            <tr>
+                <td class="text-center">{{ (page-1)*5+i+1 }}</td>
+                <td class="text-center">{{ v.categoryName }}</td>
+                <td class="text-center">{{ v.brandName }}</td>
+                <td class="text-center">
+                    <img src="{{v.brandLogo}}" height="50">
+                </td>
+            </tr>
+        {{/each}}
+    </script>
+
+    <!-- 添加-》 一级分类模板 -->
+    <script type="text/html" id="map">
+        {{each rows v i}}
+            <li><a href="#" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+        {{/each}}
+    </script>
+
     <script src="./lib/jquery/jquery.js"></script>
     <script src="./js/islogin.js"></script>
-
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
-    <!-- <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script> -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./js/nprogress.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
     <script src="./js/comment.js"></script>
+    <script src="./js/second.js"></script>
 </body>
 
 </html>
