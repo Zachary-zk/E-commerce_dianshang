@@ -17,6 +17,10 @@ body {
 .mb_20 {
   margin-bottom: 20px;
 }
+table.table.table-bordered.table-hover th,
+table.table.table-bordered.table-hover td {
+  vertical-align: middle;
+}
 .lt_sidebar {
   transition: all 1s;
   z-index: 99;
