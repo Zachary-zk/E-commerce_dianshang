@@ -1,0 +1,167 @@
+html,
+body{
+    height: 100%;
+    width: 100%;
+}
+ul,
+ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+img{
+    display: block;
+    width: 100%;
+}
+
+@bgColor:#006699;
+
+.lt-continter{
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 100%;
+    margin:0 auto;
+    overflow: hidden;
+    padding-bottom: 90px;
+}
+
+.lt-header{
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    position: fixed;
+    top: 0;
+    background-color: @bgColor;
+    position: relative;
+
+    h3{
+        margin: 0;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        padding-left: 45px;
+        padding-right: 45px;
+        font-size: 20px;
+        color:#fff;
+        font-weight: 400;
+    }
+
+    a{
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        color:#fff;
+        position: absolute;
+        top: 0;
+        &:first-of-type{
+            left: 0;
+        }
+        &:last-of-type{
+            right: 0;
+        }
+    }
+}
+
+.lt-footer{
+    z-index: 99;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    background-color: @bgColor;
+
+    li{
+        float: left;
+        width: 25%;
+
+        a{
+            display: block;
+            color:#fff;
+            height: 50px;
+            text-align: center;
+            padding-top: 8px;
+
+            p{
+                color:#fff;
+            }
+        }
+        &.active p,
+        &.active a{
+            color:orange;
+        }
+    }
+}
+
+.lt-body{
+    // padding-top: 45px;
+    // padding-bottom: 50px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+
+    //产品展示
+    .product{
+        padding: 10px;
+        background-color: #fff;
+
+        li{
+            padding: 10px;
+            width: 48%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            float: left;
+            margin-bottom: 10px;
+
+            &:nth-child(odd){
+                margin-right: 4%;
+            }
+
+            img{
+                width: 130px;
+                height: 130px;
+                margin: 0 auto;
+            }
+
+            p{
+                text-align: center;
+
+                span:first-child{
+                    color:red;
+                }
+                span:last-child{
+                    text-decoration: line-through;
+                }
+            }
+            button{
+                display: block;
+                margin:0 auto;
+            }
+            
+        }
+    }
+}
+
+//搜索框
+.header-search{
+    padding: 10px;
+    position: relative;
+
+    input{
+        height: 34px;
+        line-height: 34px;
+        font-size: 14px;
+        border-radius: 5px;
+        border-color: #007AFF;
+        
+    }
+    button{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 0 5px 5px 0;
+    }
+}

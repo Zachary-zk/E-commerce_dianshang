@@ -1,0 +1,30 @@
+.botton-location {
+  padding: 10px;
+}
+.botton-location .top {
+  height: 30px;
+  line-height: 30px;
+}
+.botton-location .top a,
+.botton-location .top span {
+  font-size: 12px;
+  color: #666;
+}
+.botton-location .bottom ul {
+  border: 1px dashed red;
+}
+.botton-location .bottom li {
+  border-bottom: 1px dashed red;
+  padding-left: 10px;
+  height: 30px;
+  line-height: 30px;
+}
+.botton-location .bottom li:last-of-type {
+  border-bottom: none;
+}
+.botton-location .bottom li a {
+  font-size: 12px;
+}
+.botton-location .bottom li i {
+  line-height: 30px;
+}

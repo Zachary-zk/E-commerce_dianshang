@@ -1,0 +1,142 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.lt-continter {
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 90px;
+}
+.lt-header {
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  position: fixed;
+  top: 0;
+  background-color: #006699;
+  position: relative;
+}
+.lt-header h3 {
+  margin: 0;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  padding-left: 45px;
+  padding-right: 45px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 400;
+}
+.lt-header a {
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 0;
+}
+.lt-header a:first-of-type {
+  left: 0;
+}
+.lt-header a:last-of-type {
+  right: 0;
+}
+.lt-footer {
+  z-index: 99;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  background-color: #006699;
+}
+.lt-footer li {
+  float: left;
+  width: 25%;
+}
+.lt-footer li a {
+  display: block;
+  color: #fff;
+  height: 50px;
+  text-align: center;
+  padding-top: 8px;
+}
+.lt-footer li a p {
+  color: #fff;
+}
+.lt-footer li.active p,
+.lt-footer li.active a {
+  color: orange;
+}
+.lt-body {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+.lt-body .product {
+  padding: 10px;
+  background-color: #fff;
+}
+.lt-body .product li {
+  padding: 10px;
+  width: 48%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  float: left;
+  margin-bottom: 10px;
+}
+.lt-body .product li:nth-child(odd) {
+  margin-right: 4%;
+}
+.lt-body .product li img {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+}
+.lt-body .product li p {
+  text-align: center;
+}
+.lt-body .product li p span:first-child {
+  color: red;
+}
+.lt-body .product li p span:last-child {
+  text-decoration: line-through;
+}
+.lt-body .product li button {
+  display: block;
+  margin: 0 auto;
+}
+.header-search {
+  padding: 10px;
+  position: relative;
+}
+.header-search input {
+  height: 34px;
+  line-height: 34px;
+  font-size: 14px;
+  border-radius: 5px;
+  border-color: #007AFF;
+}
+.header-search button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 0 5px 5px 0;
+}
