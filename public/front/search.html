@@ -18,8 +18,8 @@
         <!-- 头部 -->
         <div class="lt-header">
             <h3>乐淘云购</h3>
-            <a href="index.html">
-                <i class="mui-icon mui-icon-back"></i>
+            <a href="javascript:;">
+                <i class="mui-icon mui-icon-back ico-break"></i>
             </a>
         </div>
         <!-- 底部 -->
@@ -58,7 +58,7 @@
                     <div class="header-search">
                         <input type="text" placeholder="请输入搜索关键字">
 
-                        <button class="mui-btn mui-btn-primary">搜索</button>
+                        <button class="mui-btn mui-btn-primary btn-search">搜索</button>
                     </div>
                     <div class="botton-location">
 
@@ -75,7 +75,7 @@
         {{ else }}
             <div class="top">
                 <span class="mui-pull-left">搜索历史</span>
-                <a href="javascript:;" class="mui-pull-right">
+                <a href="javascript:;" class="mui-pull-right ico-del">
                     <i class="fa fa-trash"></i>
                     <span>情况记录</span>
                 </a>
@@ -83,9 +83,9 @@
             <div class="bottom">
                 <ul>
                     {{ each list v i }}
-                        <li>
+                        <li data-index={{i}}>
                             <a href="javascript:;" class="mui-pull-left">{{v}}</a>
-                            <i class="mui-pull-right mui-icon mui-icon-closeempty"></i>
+                            <i class="mui-pull-right mui-icon mui-icon-closeempty btn-delete"></i>
                         </li>
                     {{ /each }}
                 </ul>

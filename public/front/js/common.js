@@ -10,3 +10,8 @@
         // bounce: true //是否启用回弹  
     });
 }())
+$(function () {
+    $('.ico-break').on('click', function () {
+        history.back()
+    })
+})
